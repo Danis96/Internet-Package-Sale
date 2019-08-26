@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.cell.*?> 
+<?import javafx.collections.*?> 
+<?import main.*?> 
+ 
+<HBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="main.UserController">
+    <children>
+        <VBox>
+            <children>
+                <HBox alignment="TOP_RIGHT">
+                    <children>
+                        <Button mnemonicParsing="false" text="Close" onAction="#closeForm"/>
+                    </children>
+                </HBox>
+                <Label text="Prodaja" />
+                <TextField fx:id="firstName"  promptText="Ime" />
+                <TextField fx:id="lastName"  promptText="Prezime" />
+                <TextField fx:id="adresa"  promptText="Adresa" />
+                  <Label text=" Brzina"/> 
+              <ChoiceBox fx:id="cbBrzina"  />  
+              <Label text=" Mbit"/>  
+              <Label fx:id="lbl3" text="Protok: " />  
+              <ChoiceBox fx:id="cbProtok" />  
+              <Label text=" GB" />  
+              <Label fx:id="lbl4" text="Trajanje ugovora: " />  
+              <ChoiceBox fx:id="cbUgovor"/>  
+              <Label text=" god." />  
+              
+                
+            
+                <HBox alignment="TOP_RIGHT">
+                    <children>
+                        <Button fx:id="saveBtn" mnemonicParsing="false" onAction="#savePerson" text="Save" />
+                        <Button fx:id="clearBtn" mnemonicParsing="false" onAction="#clearPerson" text="Clear" />
+                        <Button fx:id="deleteBtn" mnemonicParsing="false" onAction="#deletePerson" text="Delete" /><!-- DELETE -->
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+       
+        <Pane>
+            <TableView fx:id="tabela">
+                <columns>
+                    <TableColumn text="Ime">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="firstName" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Prezime">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="lastName" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Adresa">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="adresa" />
+                        </cellValueFactory>                        
+                    </TableColumn>
+                   
+                     <TableColumn text="Brzina">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="brzina" />
+                        </cellValueFactory>                        
+                    </TableColumn>
+                     <TableColumn text="Protok">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="protok" />
+                        </cellValueFactory>                        
+                    </TableColumn>
+                     <TableColumn text="Ugovor">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="ugovor" />
+                        </cellValueFactory>                        
+                    </TableColumn>
+                </columns>
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <User firstName="Vedad" lastName="Dracic" adresa="Sarajevo" brzina="100" protok="flat" ugovor="2"   />
+                        <User firstName="Profesor" lastName="Drazen" adresa="Beograd" brzina="50" protok="100" ugovor="2"  />
+                        <User firstName="Danis" lastName="Prela" adresa="Grbavica" brzina="100" protok="10" ugovor="1"  />
+                        <User firstName="Dino" lastName="Dvornik" adresa="Split" brzina="20" protok="flat" ugovor="2"  />
+                    </FXCollections>
+                </items>
+            </TableView>
+        </Pane>
+      
+    </children>
+</HBox>
